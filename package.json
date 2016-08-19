@@ -1,0 +1,16 @@
+{
+  "name": "global-org",
+  "version": "1.0.0",
+  "description": "An Employee management application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Frank M. Taylor",
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "mongodb": "^2.2.6",
+    "nodemon": "^1.10.2"
+  }
+}

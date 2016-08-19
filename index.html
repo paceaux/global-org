@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Global Organization</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<!-- Place favicon.ico in the root directory -->
+
+		<link rel="stylesheet" href="assets/css/main.css">
+		<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+	</head>
+	<body>
+		<header class="globalHeader">
+			<h1 class="globalHeader__title"> Global Employee Management</h1>
+		</header>
+		<main>
+			<form class="form form--employee" action="/employees/add" method="POST">
+				<fieldset class="form__fieldset">
+					<input class="form__input input input--text" type="text" placeholder="first name" name="first-name" />
+					<input class="form__input input input--text" type="text" placeholder="last name" name="last-name" />
+				</fieldset>
+				<fieldset class="form__fieldset">
+					<input class="form__input input input--tel" type="tel" placeholder="1 210 123 1234" name="phone">
+					<input class="form__input input input--email" type="email" placeholder="Brad@tahzoo.com" name="email">
+				</fieldset>
+				<fieldset class="form__fieldset">
+					<input type="url" placeholder="linkedin.com/brad" name="linkedin" />
+				</fieldset>
+				<button class="form__button button button--submit">submit</button>
+			</form>
+		</main>
+		<footer class="globalFooter"></footer>
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+		<script src="assets/js/main.js"></script>
+
+
+	</body>
+</html>
