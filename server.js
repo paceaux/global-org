@@ -24,5 +24,7 @@ app.get('/', (req, res) => {
 
 app.post('/employees/add', employees.add);
 
-app.get('/employees/get', employees.getAll);
+app.get('/employees/get/', employees.get);
+
 app.get('/employees/update', employees.update);
+
