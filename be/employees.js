@@ -19,10 +19,7 @@ exports.add = function (req, res) {
 
 
 exports.get = function (req, res) {
-	console.log(req);
 	if (req.query) {
-		console.log('you had a query');
-		console.log(req.query);
 		var results = exports.db.collection(employees).find(req.query).toArray((err, results) => {
 			res.send(results)
 		});
@@ -33,15 +30,12 @@ exports.get = function (req, res) {
 	}
 };
 
-exports.getOne = function (req, res) {
-
-};
 
 exports.update = function (req, res) {
 	if (req.query) {
 		exports.db.collection(employees).col.updateOne({}, {}, function (err, result) {
-	});
-	}
 
+		});
+	}
 };
 
