@@ -20,15 +20,54 @@
 		<main>
 			<form class="form form--employee" action="/employees/add" method="POST">
 				<fieldset class="form__fieldset">
+					<legend class="form__legend">Name</legend>
 					<input class="form__input input input--text" type="text" placeholder="first name" name="first-name" />
 					<input class="form__input input input--text" type="text" placeholder="last name" name="last-name" />
 				</fieldset>
 				<fieldset class="form__fieldset">
-					<input class="form__input input input--tel" type="tel" placeholder="1 210 123 1234" name="phone">
-					<input class="form__input input input--email" type="email" placeholder="Brad@tahzoo.com" name="email">
+					<legend class="form__legend">Location</legend>
+					<select class="form__select select" name="continent" placeholder="continent">
+						<option selected"selected">continent</option>
+						<option value="NA">North America</option>
+						<option value="EU">European Union</option>
+					</select>
+					<select class="form__select select" name="country">
+						<option selected"selected">Country</option>
+						<option value="NL">Netherlands</option>
+						<option value="UK">United Kingdom</option>
+						<option value="US"> United States</option>
+					</select>
+					<select class="form__select select" name="office">
+						<option selected"selected">Office</option>
+						<option value="Delft">Delft</option>
+						<option value="Delft">Maarsen</option>
+						<option value="Milton Keynes">Milton Keynes</option>
+						<option value="Richmond">Richmond</option>
+						<option value="DC">DC</option>
+						<option value="Seattle">Seattle</option>
+					</select>
+					<input class="form__input input input--text" type="text" placeholder="location" name="location" />
 				</fieldset>
 				<fieldset class="form__fieldset">
-					<input type="url" placeholder="linkedin.com/brad" name="linkedin" />
+					<legend class="form__legend">Employment</legend>
+					<input class="form__input input input--text" type="text" placeholder="role" name="role" />
+					<input class="form__input input input--text" type="text" placeholder="sme" name="sme1" />
+					<input class="form__input input input--text" type="text" placeholder="sme" name="sme2" />
+					<input class="form__input input input--text" type="text" placeholder="supervisor" name="supervisor" />
+				</fieldset>
+				<fieldset class="form__fieldset">
+					<legend class="form__legend">Contact</legend>
+					<input class="form__input input input--tel" type="tel" placeholder="1 210 123 1234" name="phone">
+					<input class="form__input input input--email" type="email" placeholder="Brad@tahzoo.com" name="email">
+					<input class="form__input input input--text" type="text" placeholder="skype name" name="skype" />
+				</fieldset>
+				<fieldset class="form__fieldset">
+					<legend class="form__legend">Social Media</legend>
+					<input class="form__input input input--text" type="text" placeholder="@CEOBrad" name="twitter" />
+					<input class="form__input input input--url" type="url" placeholder="linkedin.com/brad" name="linkedin" />
+				</fieldset>
+				<fieldset class="form__fieldset">
+					<input class="form__input input input--text" type="text" placeholder="employee id" name="_id" required/>
 				</fieldset>
 				<button class="form__button button button--submit">submit</button>
 			</form>
