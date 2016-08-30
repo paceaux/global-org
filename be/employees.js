@@ -8,8 +8,6 @@ MongoClient.connect('mongodb://localhost:27017/test', (err, database) => {
 });
 
 exports.add = function (req, res) {
-	console.log("you did it");
-	console.log(req.body);
 	exports.db.collection(employees).save(req.body, (err, result) => {
 		if (err) return console.log(err);
 		console.log('saved to database');
@@ -33,9 +31,22 @@ exports.get = function (req, res) {
 
 exports.update = function (req, res) {
 	if (req.query) {
-		exports.db.collection(employees).col.updateOne({}, {}, function (err, result) {
+		exports.db.collection(employees).updateOne({}, {}, function (err, result) {
 
 		});
 	}
 };
+
+exports.remove = function (req, res) {
+	if (req.query) {
+		exports.db.collection(employees).remove(req.query).then((results)=>{
+			console.log(results);
+			res.send(results);
+		});
+	} else {
+		res.send("nothing removed");
+	}
+};
+
+
 

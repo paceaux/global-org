@@ -28,3 +28,4 @@ app.get('/employees/get/', employees.get);
 
 app.get('/employees/update', employees.update);
 
+app.get('/employees/remove', employees.remove);
