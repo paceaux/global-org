@@ -19,7 +19,7 @@ exports.add = function (req, res) {
 exports.get = function (req, res) {
 	if (req.query) {
 		var results = exports.db.collection(employees).find(req.query).toArray((err, results) => {
-			res.send(results)
+			res.send(results);
 		});
 	} else {
 		exports.db.collection(employees).find().toArray(function (err, results) {
@@ -31,7 +31,7 @@ exports.get = function (req, res) {
 
 exports.update = function (req, res) {
 	if (req.query) {
-		exports.db.collection(employees).updateOne({}, {}, function (err, result) {
+		exports.db.collection(employees).updateOne(req.query, {}, function (err, result) {
 
 		});
 	}
@@ -40,7 +40,6 @@ exports.update = function (req, res) {
 exports.remove = function (req, res) {
 	if (req.query) {
 		exports.db.collection(employees).remove(req.query).then((results)=>{
-			console.log(results);
 			res.send(results);
 		});
 	} else {

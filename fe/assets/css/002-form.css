@@ -1,0 +1,46 @@
+input, select, button {
+    margin: .25em .618rem;
+}
+input, select, button {
+    color: #373737;
+    padding: .5em;
+    border: 1px solid #a5a5a5;
+}
+
+input:hover,
+select:hover,
+button:hover {
+    border-color: #6e6e6e;
+}
+
+input:focus, input:active,
+select:focus, select:active {
+    border-color: #373737;
+    outline:none;
+}
+
+fieldset {
+    border: none;
+    margin: .618em .618rem;
+}
+
+legend {
+    font-size: 1.5em;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.form__fieldset{
+    flex-grow:1;
+    flex-basis: 40%;
+    background-color: rgba(110,165,220,.2);
+}
+
+.form__input, .form__select {
+    font-size: .8em;
+}
