@@ -12,13 +12,18 @@
 
 		<link rel="stylesheet" href="assets/css/main.css">
 		<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+		<script src="assets/js/vendor/react.min.js" type="text/javascript"></script>
+		<script src="assets/js/vendor/react-dom.min.js" type="text/javascript"></script>
+		<script src="assets/js/vendor/babel.min.js"></script>
+
+
 	</head>
 	<body>
 		<header class="globalHeader">
 			<h1 class="globalHeader__title"> Global Employee Management</h1>
 		</header>
 		<main>
-			<form class="form form--employee" action="/employees/add" method="POST">
+			<form class="form form--employee js-employeeForm" action="/employees/add" method="POST" name="employee" id="employee">
 				<fieldset class="form__fieldset">
 					<legend class="form__legend">Name</legend>
 					<input class="form__input input input--text" type="text" placeholder="first name" name="first-name" />
@@ -71,11 +76,17 @@
 				</fieldset>
 				<button class="form__button button button--submit">submit</button>
 			</form>
+			<table id="employees" class="table">
+				<thead class="table__head" id="fields__headings">
+					<tr class="table__row">
+
+				</thead>
+				<tbody class="employees__list" id="employees__list"></tbody>
+			</table>
 		</main>
 		<footer class="globalFooter"></footer>
-		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-		<script src="assets/js/main.js"></script>
+		<script type="text/babel" src="assets/js/main.js"></script>
 
 
 	</body>
