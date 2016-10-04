@@ -360,13 +360,3 @@ a:focus {
 a:active {
   border-style: solid;
 }
-
-
-/*==========
-not part of the baseline
-==========*/
-
-body {
-  width: 67vw;
-  margin: 0 auto;
-}
