@@ -27,3 +27,9 @@ fieldset {
 legend {
     font-size: 1.5em;
 }
+
+input[required],
+textarea[required],
+select[required] {
+    box-shadow: 2px 0px 0px red;
+}
