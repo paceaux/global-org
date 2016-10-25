@@ -25,6 +25,10 @@
 		<main>
 			<form class="form form--employee js-employeeForm" action="/employees/add" method="POST" name="employee" id="employee">
 				<fieldset class="form__fieldset">
+					<input class="form__input input input--text" type="text" placeholder="employee id" name="_id" required/>
+				</fieldset>
+
+				<fieldset class="form__fieldset">
 					<legend class="form__legend">Name</legend>
 					<input class="form__input input input--text" type="text" placeholder="first name" name="first-name" />
 					<input class="form__input input input--text" type="text" placeholder="last name" name="last-name" />
@@ -72,17 +76,11 @@
 					<input class="form__input input input--url" type="url" placeholder="linkedin.com/brad" name="linkedin" />
 				</fieldset>
 				<fieldset class="form__fieldset">
-					<input class="form__input input input--text" type="text" placeholder="employee id" name="_id" required/>
-				</fieldset>
 				<button class="form__button button button--submit">submit</button>
+				</fieldset>
 			</form>
-			<table id="employees" class="table">
-				<thead class="table__head" id="fields__headings">
-					<tr class="table__row">
-
-				</thead>
-				<tbody class="employees__list" id="employees__list"></tbody>
-			</table>
+		<section id="global-employees">
+		</section>
 		</main>
 		<footer class="globalFooter"></footer>
 		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
