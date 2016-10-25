@@ -1,0 +1,20 @@
+table {
+	font-size: calc(.4rem + .55vw);
+	line-height: 1;
+	border-collapse: collapse;
+	border: 2px solid rgba(180, 180,180, .2);
+	width: 80vw;
+	margin: 1.618rem auto;
+}
+
+tr {
+}
+
+th, td {
+	padding: .618em;
+	border: 1px solid rgba(180, 180, 180, .2);
+}
+
+th {
+	text-transform: capitalize;
+}
