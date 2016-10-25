@@ -8,10 +8,12 @@ MongoClient.connect('mongodb://localhost:27017/test', (err, database) => {
 });
 
 exports.add = function (req, res) {
-	exports.db.collection(employees).save(req.body, (err, result) => {
+	console.log(req);
+	exports.db.collection(employees).save(req.query, (err, result) => {
 		if (err) return console.log(err);
 		console.log('saved to database');
-		res.redirect('/');
+		console.log(req.query);
+		res.send()
 	});
 };
 
@@ -41,6 +43,7 @@ exports.remove = function (req, res) {
 	if (req.query) {
 		exports.db.collection(employees).remove(req.query).then((results)=>{
 			res.send(results);
+			console.log('results removed', req.query);
 		});
 	} else {
 		res.send("nothing removed");
