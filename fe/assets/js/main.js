@@ -47,57 +47,42 @@ class EmployeeControlsDelete extends React.Component {
 	constructor (props) {
 		super(props);
 	}
-	getInitialState () {
-		return {
-			isDeleted: false
-		}
-	}
-	handleDelete (event) {
-		console.log(this.props.data);
-		let url = app.server.origin + '/employees/remove?_id=' + this.props.data._id;
-		const xhr = new XMLHttpRequest();
-		console.log(url);
-
-		xhr.open('GET', url);
-		xhr.onload = () => {
-			if (xhr.status === 200 && xhr.readyState === 4) {
-				this.setState(JSON.parse(xhr.responseText));
-			} else {
-				console.warn('Request did not work', xhr.status);
-			}
-		}
-		xhr.send();
-	}
 	render () {
 		return (
-			<button className="delete" onClick={this.handleDelete.bind(this)}>Delete</button>
+			<button className="delete" onClick={()=>this.props.onDelete(this.props.data._id)}>Delete</button>
 		)
 	}
 }
 
 class EmployeeControls extends React.Component {
 	render () {
-		console.log(this.props);
 		return (
 			<td className="employee__controls">
 				<EmployeeControlsEdit />
-				<EmployeeControlsDelete data={this.props.data}/>
+				<EmployeeControlsDelete data={this.props.data} onDelete={this.props.onDelete}/>
 			</td>
 		)
 	}
 }
 
-class Employee extends React.Component{
+class Employee extends React.Component {
+	constructor (props) {
+		super(props);
+
+		this.state = {
+			isVisible: true
+		}
+	}
 	render () {
 		return (
-			<tr className="table__row" data={this.props.data}>
+			<tr className="table__row" data={this.props.data} id={this.props.data._id} >
 				{
 					Object.keys(this.props.data).map((key) => {
 						return <td headers={key}>{this.props.data[key]}</td>
 
 					})
 				}
-				<EmployeeControls data={this.props.data}/>
+				<EmployeeControls data={this.props.data} onDelete={this.props.onDelete}/>
 			</tr>
 		);
 	}
@@ -108,6 +93,8 @@ class EmployeeList extends React.Component {
 		super(props);
 
 		this.state = {};
+
+
 	}
 	componentWillMount () {
 		const _this = this;
@@ -124,12 +111,34 @@ class EmployeeList extends React.Component {
 		}
 		xhr.send();
 	}
+	onDeleteEmployee (employeeKey) {
+		let url = app.server.origin + '/employees/remove?_id=' + employeeKey;
+		const xhr = new XMLHttpRequest();
+		let newState = this.state;
+		xhr.open('GET', url);
+		xhr.onload = () => {
+			if (xhr.status === 200 && xhr.readyState === 4) {
+				for (let employee in newState) {
+
+					if (newState[employee]._id == employeeKey) {
+						delete  newState[employee];
+					}
+				}
+				this.setState(newState);
+
+			} else {
+				console.warn('Request did not work', xhr.status);
+			}
+		}
+		xhr.send();
+
+	}
 	render () {
 		return (
 			<tbody className="employees__list" id="employees__list">
 				{
 					 Object.keys(this.state).map((key)=> {
-						return <Employee data={this.state[key]} />
+						return <Employee data={this.state[key]} key={this.state[key]._id} onDelete={this.onDeleteEmployee.bind(this)}/>
 					})
 				}
 			</tbody>
@@ -203,12 +212,11 @@ app = {
 
 			console.log('adding formdata', formData);
 			this.addEmployeeData(formData);
-			this.buildTable();
+			console.log(EmployeeList);
 		});
 	},
 	buildTable: function () {
 		let formData = this.FormData(document.querySelector(this.selectors.employeeForm));
-
 		ReactDOM.render (
 			<EmployeeTable  data={formData}/>,
 			document.getElementById('global-employees')
