@@ -1,0 +1,22 @@
+table {
+	font-size: calc(.3rem + .55vw);
+	line-height: 1;
+	border-collapse: collapse;
+	border: 2px solid rgba(180, 180,180, .2);
+	width: 40em;
+	margin: 1.618rem auto;
+}
+
+tr {
+	height: 2em;
+}
+
+th, td {
+	padding: .618em;
+	border: 1px solid rgba(180, 180, 180, .2);
+	width: 8em;
+}
+
+th {
+	text-transform: capitalize;
+}

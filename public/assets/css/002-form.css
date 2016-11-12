@@ -1,0 +1,35 @@
+input, select, button {
+    margin: .25em .618rem;
+}
+input, select, button {
+    color: #373737;
+    padding: .5em;
+    border: 1px solid #a5a5a5;
+}
+
+input:hover,
+select:hover,
+button:hover {
+    border-color: #6e6e6e;
+}
+
+input:focus, input:active,
+select:focus, select:active {
+    border-color: #373737;
+    outline:none;
+}
+
+fieldset {
+    border: none;
+    margin: .618em .618rem;
+}
+
+legend {
+    font-size: 1.5em;
+}
+
+input[required],
+textarea[required],
+select[required] {
+    box-shadow: 2px 0px 0px red;
+}
